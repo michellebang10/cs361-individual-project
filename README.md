@@ -1,2 +1,2 @@
 # CS 361 Individual Project
-Repo for CS 361's individual project.
+Repo for CS 361's individual project. 
