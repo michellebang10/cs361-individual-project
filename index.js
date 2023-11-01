@@ -34,3 +34,65 @@ var addListButton = document.getElementById("add-list-button")
 addListButton.addEventListener("click", addItem)
 
 
+/* 
+Functions relating to the Timer
+Using tutorial from:
+*/
+
+// Set time in timer
+function setTimer() {
+    var input = document.getElementById("timerInput").value
+    var timer = document.getElementById("timer")
+    if (input === '') {
+        alert("Set time")
+      } else {
+        timer.textContent = input
+      }
+    document.getElementById("timerInput").value = ""
+}
+
+var setTimerButton = document.getElementById("set-timer")
+setTimerButton.addEventListener("click", setTimer)
+
+// Reset time in timer
+function resetTimer() {
+    var timer = document.getElementById("timer")
+    if (confirm("Do you want to reset timer?") == true) {
+       timer.textContent = "00:00"
+      }
+}
+
+var resetTimerButton = document.getElementById("reset-timer")
+resetTimerButton.addEventListener("click", resetTimer)
+
+// Start timer 
+
+function countdown(timer) {
+    while (timer.textContent != "00:00"){
+        if (sec != "00"){
+            sec--
+            if (sec < 10){
+                sec = "0" + sec
+            }
+            timer.textContent = min + ":" + sec
+        } else {
+            min--
+            sec = 59
+            if (min < 10){
+                min = "0" + min
+            }
+            timer.textContent = min + ":" + sec
+        }
+    }
+}
+
+function startTimer() {
+    var timer = document.getElementById("timer")
+    var min = parseInt(timer.substring(0,2))
+    var sec = parseInt(timer.slice(-2))
+
+    setInterval(countdown, 1000)
+}
+
+var startTimerButton = document.getElementById("start-timer")
+startTimerButton.addEventListener("click", startTimer)
