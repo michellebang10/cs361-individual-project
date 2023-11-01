@@ -21,7 +21,10 @@ function addItem() {
     var li = document.createElement("li")
     var input = document.getElementById("itemInput").value
     var t = document.createTextNode(input)
+    var b = document.createElement("button")
+    b.textContent = "x"
     li.appendChild(t)
+    li.appendChild(b)
     if (input === '') {
       alert("No item to add")
     } else {
@@ -33,10 +36,12 @@ function addItem() {
 var addListButton = document.getElementById("add-list-button")
 addListButton.addEventListener("click", addItem)
 
+// Delete item from To-Do List
+
 
 /* 
 Functions relating to the Timer
-Using tutorial from:
+Using material from: https://stackoverflow.com/questions/31559469/how-to-create-a-simple-javascript-timer
 */
 
 // Set time in timer
@@ -67,31 +72,35 @@ resetTimerButton.addEventListener("click", resetTimer)
 
 // Start timer 
 
-function countdown(timer) {
-    while (timer.textContent != "00:00"){
+function countdown(timer, min, sec) {
+    setInterval( function () {if (timer.textContent != "00:00"){
+        console.log("while loop")
         if (sec != "00"){
-            sec--
+            sec = parseInt(sec)
+            sec = sec - 1
             if (sec < 10){
                 sec = "0" + sec
             }
             timer.textContent = min + ":" + sec
         } else {
-            min--
+            min = parseInt(min)
+            min = min - 1
             sec = 59
             if (min < 10){
                 min = "0" + min
             }
             timer.textContent = min + ":" + sec
         }
-    }
+    }}, 1000)
 }
 
 function startTimer() {
     var timer = document.getElementById("timer")
-    var min = parseInt(timer.substring(0,2))
-    var sec = parseInt(timer.slice(-2))
+    var min = timer.textContent.substring(0,2)
+    var sec = timer.textContent.slice(-2)
 
-    setInterval(countdown, 1000)
+    countdown(timer, min, sec)
+    //setInterval(countdown, 1000, timer, min, sec)
 }
 
 var startTimerButton = document.getElementById("start-timer")
