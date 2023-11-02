@@ -100,7 +100,6 @@ function startTimer() {
     var sec = timer.textContent.slice(-2)
 
     countdown(timer, min, sec)
-    //setInterval(countdown, 1000, timer, min, sec)
 }
 
 var startTimerButton = document.getElementById("start-timer")
