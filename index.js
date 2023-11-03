@@ -17,6 +17,7 @@ Using tutorial from: https://www.w3schools.com/howto/howto_js_todolist.asp
 */
 
 // Add items to To-Do List
+
 function addItem() {
     var li = document.createElement("li")
     var input = document.getElementById("itemInput").value
@@ -45,6 +46,8 @@ function addItem() {
       }
 }
 
+// Delete items from To-Do list
+
 var close = document.getElementsByClassName("close")
 var i
 for (i = 0; i < close.length; i++) {
@@ -57,8 +60,6 @@ for (i = 0; i < close.length; i++) {
   
 var addListButton = document.getElementById("add-list-button")
 addListButton.addEventListener("click", addItem)
-
-// Delete item from To-Do List
 
 
 /* 
@@ -99,6 +100,7 @@ var setTimerButton = document.getElementById("set-timer")
 setTimerButton.addEventListener("click", setTimer)
 
 // Reset time in timer
+
 function resetTimer() {
     var timer = document.getElementById("timer")
     if (confirm("Do you want to reset timer?") == true) {
