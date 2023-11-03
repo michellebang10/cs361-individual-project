@@ -31,9 +31,10 @@ function addItem() {
     document.getElementById("itemInput").value = ""
     
     var span = document.createElement("span")
-    var txt = document.createTextNode("[" + "\u00D7" + "]")
+    var button = document.createElement("button")
+    button.textContent = "\u00D7"
     span.className = "close"
-    span.appendChild(txt)
+    span.appendChild(button)
     li.appendChild(span)
 
     for (i = 0; i < close.length; i++) {
@@ -136,7 +137,7 @@ function countdown(timer, min, sec) {
     }}, 1000)
 
     var resetTimerButton = document.getElementById("reset-timer")
-    resetTimerButton.addEventListener("click", function () {clearInterval(run)})
+    resetTimerButton.addEventListener("click", function () {clearInterval(run)}) // Need this to stop countdown.
 }
 
 function stopTimer(run) {
