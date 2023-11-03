@@ -21,17 +21,39 @@ function addItem() {
     var li = document.createElement("li")
     var input = document.getElementById("itemInput").value
     var t = document.createTextNode(input)
-    var b = document.createElement("button")
-    b.textContent = "x"
     li.appendChild(t)
-    li.appendChild(b)
     if (input === '') {
       alert("No item to add")
     } else {
       document.getElementById("todoList").appendChild(li)
     }
     document.getElementById("itemInput").value = ""
+    
+    var span = document.createElement("span")
+    var txt = document.createTextNode("[" + "\u00D7" + "]")
+    span.className = "close"
+    span.appendChild(txt)
+    li.appendChild(span)
+
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+            if(confirm("Do you want to delete this item?") == true) {
+                var div = this.parentElement
+                div.style.display = "none"
+            }
+        }
+      }
+}
+
+var close = document.getElementsByClassName("close")
+var i
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement
+    div.style.display = "none"
   }
+}
+
   
 var addListButton = document.getElementById("add-list-button")
 addListButton.addEventListener("click", addItem)
