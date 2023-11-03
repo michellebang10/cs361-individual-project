@@ -50,8 +50,25 @@ function setTimer() {
     var timer = document.getElementById("timer")
     if (input === '') {
         alert("Set time")
+      } else if (Number.isInteger(parseInt(input))) {
+        if (/:/.test(input)) {
+            console.log("check")
+            timer.textContent = input
+        } else if (9 < parseInt(input) && parseInt(input) < 100) {
+            timer.textContent = "00:" + input
+        } else if (999 < parseInt(input) && parseInt(input) < 10000) {
+            timer.textContent = input.substring(0,2) + ":" + input.slice(-2)
+        } else if (parseInt(input) >= 10000) {
+            alert("Time is too long!")
+        } else if (0 < parseInt(input) && parseInt(input) < 10) {
+            timer.textContent = "00:0" + input
+        } else if (99 < parseInt(input) && parseInt(input) < 1000){
+            timer.textContent = "0" + input.substring(0,1) + ":" + input.slice(-2)
+        } else {
+            alert("Not a valid time!")
+        }  
       } else {
-        timer.textContent = input
+        alert("Not a valid time!")
       }
     document.getElementById("timerInput").value = ""
 }
@@ -73,8 +90,7 @@ resetTimerButton.addEventListener("click", resetTimer)
 // Start timer 
 
 function countdown(timer, min, sec) {
-    setInterval( function () {if (timer.textContent != "00:00"){
-        console.log("while loop")
+    var run = setInterval( function () {if (timer.textContent != "00:00"){
         if (sec != "00"){
             sec = parseInt(sec)
             sec = sec - 1
@@ -82,6 +98,7 @@ function countdown(timer, min, sec) {
                 sec = "0" + sec
             }
             timer.textContent = min + ":" + sec
+            timer = document.getElementById("timer")
         } else {
             min = parseInt(min)
             min = min - 1
@@ -90,8 +107,16 @@ function countdown(timer, min, sec) {
                 min = "0" + min
             }
             timer.textContent = min + ":" + sec
+            timer = document.getElementById("timer")
         }
     }}, 1000)
+
+    var resetTimerButton = document.getElementById("reset-timer")
+    resetTimerButton.addEventListener("click", function () {clearInterval(run)})
+}
+
+function stopTimer(run) {
+    clearInterval(run)
 }
 
 function startTimer() {
