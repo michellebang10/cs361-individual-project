@@ -23,6 +23,7 @@ function addItem() {
     var input = document.getElementById("itemInput").value
     var t = document.createTextNode(input)
     li.appendChild(t)
+    li.className = "list-sec"
     if (input === '') {
       alert("No item to add")
     } else {

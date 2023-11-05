@@ -13,3 +13,16 @@ header {
 #time {
     font-size: 50px;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+  }
+
+.list-sec{
+    text-align: left;
+}
+
+.close {
+    margin-left: 5px;
+}
