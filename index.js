@@ -39,7 +39,7 @@ function addItem() {
 
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
-            if(confirm("Do you want to delete this item?") == true) {
+            if(confirm("Do you want to delete this item? You cannot undo this action.") == true) {
                 var div = this.parentElement
                 div.style.display = "none"
             }

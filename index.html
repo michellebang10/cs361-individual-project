@@ -10,36 +10,40 @@
     <header>
         <h1>MOTIMER</h1>
         <h1>motivation/timer</h1>
+        <ul class = "navbar">
+            <li><a href="startpage.html" onClick="return confirm('Leaving this page will delete all your progress. Do you want to leave?')">Go back to starting page</a></li>
+            <li><a href="faq.html" onClick="return confirm('Leaving this page will delete all your progress. Do you want to leave?')">Go to FAQs</a></li>
+            <li><a href="purpose.html" onClick="return confirm('Leaving this page will delete all your progress. Do you want to leave?')">Go to purpose/features page</a></li>
+        </ul>
     </header>
-<h4><a href="startpage.html" onClick="return confirm('Leaving this page will delete all your progress. Do you want to leave?')">Go back to starting page</a></h4>
-<h4><a href="faq.html" onClick="return confirm('Leaving this page will delete all your progress. Do you want to leave?')">Go to FAQs</a></h4>
-<h4><a href="purpose.html" onClick="return confirm('Leaving this page will delete all your progress. Do you want to leave?')">Go to purpose/features page</a></h4>
 
-<section id = "time-section">
-    <h1><span id = "time"></span></h1>
-</section>
+    <center>
+        <section id = "time-section">
+            <h1><span id = "time"></span></h1>
+        </section>
 
-<section id = "image-section">
-    <img src="pochacco.png" alt="image of choice" width = 400 height = 400 />
-    <button id="image-button">Randomize Image</button>
-</section>
-
-<section id = "list-section">
-    <h2>To-Do List</h2>
-    <input type="text" id="itemInput" placeholder="Type items here...">
-    <button id="add-list-button">Add</button>
-    <ul id = "todoList">
-    </ul>
-</section>
-
-<section id = "timer-section">
-    <h2>Timer</h2>
-    <h2><span id = "timer">00:00</span></h2>
-    <input type="text" id = "timerInput" placeholder="Type time here...">
-    <button id="set-timer">Set</button>
-    <button id="reset-timer">Reset</button>
-    <button id="start-timer">Start</button>
-</section>
+        <section id = "timer-section">
+            <h2>Timer</h2>
+            <h2><span id = "timer">00:00</span></h2>
+            <input type="text" id = "timerInput" placeholder="Type time here...">
+            <button id="set-timer">Set</button>
+            <button id="reset-timer">Reset</button>
+            <button id="start-timer">Start</button>
+        </section>  
+        
+        <section id = "image-section">
+            <img src="pochacco.png" alt="image of choice" width = 400 height = 400 />
+            <button id="image-button">Randomize Image</button>
+        </section>
+        
+        <section id = "list-section">
+            <h2>To-Do List</h2>
+            <input type="text" id="itemInput" placeholder="Type items here...">
+            <button id="add-list-button">Add</button>
+            <ul id = "todoList">
+            </ul>
+        </section>   
+    </center>
 
 
 </body>
