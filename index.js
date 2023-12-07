@@ -80,7 +80,7 @@ addListButton.addEventListener("click", addItem)
 /* 
 Functions relating to the Timer
 Using material from: 
-https://stackoverflow.com/questions/31559469/how-to-create-a-simple-javascript-timer
+https://stackoverflow.com/questions/31559469/
 */
 
 // Format the timer input.
